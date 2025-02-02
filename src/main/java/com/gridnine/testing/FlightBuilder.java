@@ -33,7 +33,7 @@ class FlightBuilder {
                         threeDaysFromNow.plusHours(6), threeDaysFromNow.plusHours(7)));
     }
 
-    private static Flight createFlight(final LocalDateTime... dates) {
+    static Flight createFlight(final LocalDateTime... dates) {
         if ((dates.length % 2) != 0) {
             throw new IllegalArgumentException(
                     "you must pass an even number of dates");
@@ -62,8 +62,8 @@ class Flight {
 
     @Override
     public String toString() {
-        return segments.stream().map(Object::toString)
-                .collect(Collectors.joining(" "));
+        return ">> FLIGHT > " + segments.stream().map(Object::toString)
+                .collect(Collectors.joining(" ")) + " > FLIGHT >>";
     }
 }
 
